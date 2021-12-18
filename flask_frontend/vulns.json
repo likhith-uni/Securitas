@@ -1,0 +1,26 @@
+[
+    {
+        "title":"CORS misconfiguration",
+        "description": "This CORS misconfiguration could allow an attacker to perform AJAX queries to the vulnerable website from a malicious page loaded by the victim's user agent.\nIn order to perform authenticated AJAX queries, the server must specify the header \"Access-Control-Allow-Credentials: true\" and the \"Access-Control-Allow-Origin\" header must be set to null or the malicious page's domain. Even if this misconfiguration doesn't allow authenticated AJAX requests, unauthenticated sensitive content can still be accessed (e.g intranet websites).\nA malicious page can belong to a malicious website but also a trusted website with flaws (e.g XSS, support of HTTP without TLS allowing code injection through MITM, etc).\n",
+        "fixes":"If a web resource contains sensitive information, the origin should be properly specified in the Access-Control-Allow-Origin header. Only trusted websites needing this resource should be specified in this header, with the most secured protocol supported.",
+        "severity":"Medium"
+    },
+    {
+        "title":"Authentication Credentials Captured",
+        "description": "The authentication is performed over an unsecured HTTP connection, which can expose user IDs and passwords of authenticated users to an attacker. An attacker can eavesdrop on the network until an authentication request is received to read & decipher the results.In case of Basic Authentication, the attacker can retrieve usernames and in some cases passwords too using the base64 decoder.In case of Digest Authentication, the username is available in cleartext and the password hash (including the nonce) can be decoded to obtain the password.",
+        "fixes":"Use HTTPS, and use a secure authentication mechanism that does not transmit the userid or password in an un-encrypted fashion.In particular, avoid use of the Basic Authentication mechanism, since this trivial obfuscation mechanism is easily broken.",
+        "severity":"Low"
+    },
+    {
+        "title":"Absence of Anti-CSRF Tokens",
+        "description": "Anti-CSRF tokens were missing in HTML submission forms. This can result in Cross-Site Request Forgery. Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious website, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site for which the user is currently authenticated. By exploiting this vulnerability, a hacker can change the passwords, call APIs, etc on the user's behalf (same session) by tricking the user to click on a malicious link. In this case, CSRF vulnerability can be clubbed with the clickjacking vulnerability found which could be used to add new users, delete records, export data, etc.",
+        "fixes":"Add a temporarily valid token for all form submissions on the application.",
+        "severity":"Low"
+    },
+    {
+        "title":"Google OAuth Key Disclosed",
+        "description": "Possible Leak of Google OAuth Key in the response body.",
+        "fixes":"Make sure that the disclosed key is removed or has sufficient permissions to prevent exploitation.",
+        "severity":"High"
+    }  
+]

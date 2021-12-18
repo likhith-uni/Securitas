@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start New Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="/">Securitas</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Account</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">SignUp</a>
+                      </li>
+                    </ul>
+                </div>
+              </nav>
+    <div class="container">
+    <form action="{{url_for('initiate_project')}}" method="POST">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Scope</label>
+          <input type="text" class="form-control" name='scope' id="formGroupExampleInput" value={{scope}}>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Project Name</label>
+          <input type="text" class="form-control" name='appname' id="formGroupExampleInput2" placeholder="Project Name">
+        </div>
+        <br>
+
+       <center><div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Create Project</button></div></center> 
+        
+      </form>
+    </div>
+</body>
+</html>
